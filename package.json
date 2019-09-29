@@ -4,7 +4,7 @@
   "description": "",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www",
+    "start": "nodemon --exec babel-node ./bin/www",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -18,5 +18,11 @@
     "morgan": "~1.9.1",
     "sequelize": "^5.19.1",
     "twig": "^1.13.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.6.2",
+    "@babel/node": "^7.6.2",
+    "@babel/preset-env": "^7.6.2",
+    "nodemon": "^1.19.2"
   }
 }
