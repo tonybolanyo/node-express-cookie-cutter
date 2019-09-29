@@ -5,6 +5,7 @@ import path from 'path';
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+import models, { sequelize } from './models';
 import routes from './routes';
 
 var app = express();
@@ -36,6 +37,11 @@ app.use(function(err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render('error');
+});
+
+// Synchronize models
+sequelize.sync().then(() => {
+  console.log('Database synchronized');
 });
 
 module.exports = app;
