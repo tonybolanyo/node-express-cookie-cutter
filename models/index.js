@@ -10,6 +10,7 @@ const sequelize = new Sequelize(
 );
 
 const models = {
+  Message: sequelize.import('./message'),
   User: sequelize.import('./user'),
 }
 

@@ -39,8 +39,10 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-// Synchronize models
-sequelize.sync().then(() => {
+// Synchronize models, erasing DB on each run
+const eraseDatabaseOnSync = true;
+
+sequelize.sync({ force: eraseDatabaseOnSync }).then(() => {
   console.log('Database synchronized');
 });
 
