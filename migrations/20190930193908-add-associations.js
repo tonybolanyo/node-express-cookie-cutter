@@ -9,7 +9,7 @@ module.exports = {
       Example:
       return queryInterface.createTable('users', { id: Sequelize.INTEGER });
     */
-    return queryInterface.addColumn("Messages", "UserId", {
+    return queryInterface.addColumn("Messages", "userId", {
       type: Sequelize.INTEGER,
       references: {
         model: "Users", // name of target model
@@ -30,7 +30,7 @@ module.exports = {
     */
     return queryInterface.removeColumn(
       "Messages", // name od source model
-      "UserId" // key we want to remove
+      "userId" // key we want to remove
     );
   }
 };
