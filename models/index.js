@@ -26,10 +26,7 @@ fs
   });
 
 Object.keys(db).forEach(modelName => {
-  console.log(`### Making associations (${modelName})`);
   if (db[modelName].associate) {
-    console.log(`...Associating ${modelName}...`);
-    console.log(db[modelName]);
     db[modelName].associate(db);
   }
 });

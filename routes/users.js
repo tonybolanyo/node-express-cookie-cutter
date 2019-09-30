@@ -1,15 +1,18 @@
-import { Router } from 'express';
-import users from '../models';
+import { Router } from "express";
+import { User } from "../models";
 
-const router = Router()
+const router = Router();
 
 /* GET users listing. */
-router.get("/", function(req, res, next) {
+router.get("/", async (req, res, next) => {
+  console.log("User", User);
+  const users = await User.findAll();
   res.send(Object.values(users));
 });
 
-router.get('/:userId', (req, res) => {
-  return res.send(users[req.params.userId]);
+router.get("/:userId", async (req, res) => {
+  const user = await User.findByPk(req.params.userId);
+  return res.send(user);
 });
 
 export default router;
